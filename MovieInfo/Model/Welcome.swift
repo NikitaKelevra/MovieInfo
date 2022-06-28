@@ -7,14 +7,13 @@
 
 import Foundation
 
-// MARK: - Welcome
+// MARK: - Welcome Screen
 struct Welcome: Codable {
     let status: String
     let totalResults: Int?
     let articles: [Article]
 }
 
-// MARK: - Article
 struct Article: Codable {
     let source: Source?
     let author: String?
@@ -31,8 +30,12 @@ struct Article: Codable {
     }
 }
 
-// MARK: - Source
 struct Source: Codable {
     let id: String?
     let name: String
+}
+
+// MARK: - Popular Movie
+struct PopularMovie:Codable {
+    
 }

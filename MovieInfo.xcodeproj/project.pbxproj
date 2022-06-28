@@ -13,7 +13,7 @@
 		68649B282860F8A600D4B124 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68649B262860F8A600D4B124 /* Main.storyboard */; };
 		68649B2A2860F8A700D4B124 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68649B292860F8A700D4B124 /* Assets.xcassets */; };
 		68649B2D2860F8A700D4B124 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68649B2B2860F8A700D4B124 /* LaunchScreen.storyboard */; };
-		68649B352860F97E00D4B124 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68649B342860F97E00D4B124 /* Networking.swift */; };
+		68649B352860F97E00D4B124 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68649B342860F97E00D4B124 /* NetworkManager.swift */; };
 		68649B382862553000D4B124 /* Welcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68649B372862553000D4B124 /* Welcome.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +26,7 @@
 		68649B292860F8A700D4B124 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68649B2C2860F8A700D4B124 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68649B2E2860F8A700D4B124 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		68649B342860F97E00D4B124 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		68649B342860F97E00D4B124 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		68649B372862553000D4B124 /* Welcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcome.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,7 +76,7 @@
 		68649B362862304C00D4B124 /* NetworkManager */ = {
 			isa = PBXGroup;
 			children = (
-				68649B342860F97E00D4B124 /* Networking.swift */,
+				68649B342860F97E00D4B124 /* NetworkManager.swift */,
 			);
 			path = NetworkManager;
 			sourceTree = "<group>";
@@ -162,7 +162,7 @@
 			files = (
 				68649B252860F8A600D4B124 /* ViewController.swift in Sources */,
 				68649B382862553000D4B124 /* Welcome.swift in Sources */,
-				68649B352860F97E00D4B124 /* Networking.swift in Sources */,
+				68649B352860F97E00D4B124 /* NetworkManager.swift in Sources */,
 				68649B212860F8A600D4B124 /* AppDelegate.swift in Sources */,
 				68649B232860F8A600D4B124 /* SceneDelegate.swift in Sources */,
 			);
