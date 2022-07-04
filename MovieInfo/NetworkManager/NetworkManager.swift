@@ -16,7 +16,7 @@ let language = "ru-RUS"
 let region = "RU"
 
 let urlTMDB = "https://api.themoviedb.org/3/movie/550?api_key=\(apiKey)&language=\(language)"
-let popularMovieAPI = "https://api.themoviedb.org/3/movie/popular?api_key=\(apiKey)&language=\(language)&page=1" //&region=\(region)
+let popularMoviesAPI = "https://api.themoviedb.org/3/movie/popular?api_key=\(apiKey)&language=\(language)&page=1" //&region=\(region)
 
 
 

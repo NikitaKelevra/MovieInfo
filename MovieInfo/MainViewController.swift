@@ -9,25 +9,46 @@ import UIKit
 
 class MainViewController: UICollectionViewController {
 
+    
+    
+    // MARK: - Properties
     private var popularMovies: PopularMovies?
     
     
+    
+    private var viewModel: MainViewModelProtocol! {
+        didSet {
+            viewModel.fetchFilms {
+                self.reloadData()
+            }
+        }
+    }
+    
+    // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel = MainViewModel()
         
         fetchData(from: popularMovieAPI)
         setupCollectionView()
     }
-
-    private func fetchData(from url: String?) {
-        NetworkManager.shared.fetchData(from: url) {  popularMovies in
-            print (popularMovies)
-            self.popularMovies = popularMovies
-//            self.tableView.reloadData()
-        }
-    }
     
+    // MARK: -
+
+    
+    // MARK: - Private func
+
+    
+    /// Перезагружает данные в CollectionView
+    private func reloadData() {
+        var snapshot = Snapshot()
+        snapshot.appendSections(viewModel.productsList)
+        for section in viewModel.productsList {
+            snapshot.appendItems(section.items, toSection: section)
+        }
+        dataSourse?.apply(snapshot)
+    }
     
     
     
