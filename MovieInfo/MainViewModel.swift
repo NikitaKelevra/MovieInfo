@@ -5,21 +5,21 @@
 //  Created by Сперанский Никита on 04.07.2022.
 //
 
-import Foundation
 import UIKit
 
 // MARK: - MainViewModelProtocol
 protocol MainViewModelProtocol {
     
-    var popularMoviesResult: [Result] { get }
+//    var updateMainViewData: ((MainViewData) -> ())? { get set }
     
-    var filmsImage: [UIImage] { get }
+    var popularMovies: [Result] { get }
     
-    var filmsTitle: [String] { get }
+//    var filmsImage: [UIImage] { get }
+//    var filmsTitle: [String] { get }
     
-    func numberOfRows() -> Int
+    func numberOfRowsPopularMovies() -> Int
     
-    func fetchFavoriteFilms(completion: @escaping() -> Void)
+    func fetchPopularMovies(completion: @escaping() -> Void)
     
 }
 
@@ -27,23 +27,29 @@ protocol MainViewModelProtocol {
     
 final class MainViewModel: MainViewModelProtocol {
     
-    var popularMoviesResult: [Result] = []
+//    public var updateMainViewData: ((MainViewData) -> ())?
     
-    var filmsTitle: [String] {
-        popularMoviesResult.originalTitle
-    }
+//    init() {
+//        updateMainViewData?(.initial)
+//    }
     
-    var filmsImage: [UIImage] {
-        popularMoviesResult.backdropPath
-    }
+    var popularMovies: [Result] = []
     
-    func numberOfRows() -> Int {
+//    var popularMoviesTitle: [String] {
+//        popularMoviesResult.originalTitle
+//    }
+//
+//    var popularMoviesImage: [UIImage] {
+//        popularMoviesResult.backdropPath
+//    }
+    
+    func numberOfRowsPopularMovies() -> Int {
         print("Количество популярных фильмов будет \(popularMoviesResult.count)")
         return popularMoviesResult.count
     }
     
     
-    func fetchFavoriteFilms(completion: @escaping () -> Void) {
+    func fetchPopularMovies(completion: @escaping () -> Void) {
         NetworkManager.shared.fetchData(from: popularMoviesAPI) {  popularMovies in
             print (popularMovies.results)
             self.popularMoviesResult = popularMovies.results

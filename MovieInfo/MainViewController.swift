@@ -8,8 +8,9 @@
 import UIKit
 
 class MainViewController: UICollectionViewController {
-
     
+    typealias DataSourse = UICollectionViewDiffableDataSource<Section, Film>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<popularMovies, Product>
     
     // MARK: - Properties
     private var popularMovies: PopularMovies?
@@ -18,7 +19,7 @@ class MainViewController: UICollectionViewController {
     
     private var viewModel: MainViewModelProtocol! {
         didSet {
-            viewModel.fetchFilms {
+            viewModel.fetchPopularMovies {
                 self.reloadData()
             }
         }
@@ -30,7 +31,7 @@ class MainViewController: UICollectionViewController {
         
         viewModel = MainViewModel()
         
-        fetchData(from: popularMovieAPI)
+//        fetchData(from: popularMovieAPI)
         setupCollectionView()
     }
     
@@ -43,8 +44,8 @@ class MainViewController: UICollectionViewController {
     /// Перезагружает данные в CollectionView
     private func reloadData() {
         var snapshot = Snapshot()
-        snapshot.appendSections(viewModel.productsList)
-        for section in viewModel.productsList {
+        snapshot.appendSections(viewModel.popularMovies)
+        for section in viewModel.popularMovies {
             snapshot.appendItems(section.items, toSection: section)
         }
         dataSourse?.apply(snapshot)
@@ -52,6 +53,7 @@ class MainViewController: UICollectionViewController {
     
     
     
+
     // MARK: - Setup Collection View
     // Основные настройки Collection View
     
@@ -59,6 +61,30 @@ class MainViewController: UICollectionViewController {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createCompositionalLayout())
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
+    
+    // MARK: - Diffable Data Source
+    private func createDataSourse() {
+        /// Настраивает ячейки в зависимости от секции
+        dataSourse = DataSourse(collectionView: collectionView,
+                                cellProvider: { [self] (collectionView, indexPath, _) -> UICollectionViewCell? in
+            let section = viewModel.productsList[indexPath.section].section
+            
+            switch section {
+            case .mainMenu:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: MainMenuCell.self), for: indexPath) as! MainMenuCell
+                
+                cellBuilder.configureCell(for: cell,
+                                          with: viewModel.mainMenuCellViewModel(with: indexPath))
+                return cell
+            case .specialOffers:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: SpecialOfferCell.self), for: indexPath) as! SpecialOfferCell
+                
+                cellBuilder.configureCell(for: cell,
+                                          with: viewModel.specialOfferCellViewModel(with: indexPath))
+                return cell
+            }
+        })
+        
     
     // MARK: - CollectionViewCompositionalLayout
     // Создаем композиционный Layout для разных секций коллекции
