@@ -6,20 +6,22 @@
 //
 
 import UIKit
-
+// MARK: Основной экран VC
 class MainViewController: UICollectionViewController {
     
-    typealias DataSourse = UICollectionViewDiffableDataSource<Section, Film>
-    typealias Snapshot = NSDiffableDataSourceSnapshot<popularMovies, Product>
+//    typealias dataSourсe = UICollectionViewDiffableDataSource<Section, Movie>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<MoviesList, Movie>
     
     // MARK: - Properties
+    
+    private var dataSource: UICollectionViewDiffableDataSource<MoviesList, Movie>?
+    
     private var popularMovies: PopularMovies?
-    
-    
+    private var cellBuilder: CellBuildable!  // создание строителя ячеек
     
     private var viewModel: MainViewModelProtocol! {
         didSet {
-            viewModel.fetchPopularMovies {
+            viewModel.fetchMovies {
                 self.reloadData()
             }
         }
@@ -35,8 +37,6 @@ class MainViewController: UICollectionViewController {
         setupCollectionView()
     }
     
-    // MARK: -
-
     
     // MARK: - Private func
 
@@ -44,11 +44,11 @@ class MainViewController: UICollectionViewController {
     /// Перезагружает данные в CollectionView
     private func reloadData() {
         var snapshot = Snapshot()
-        snapshot.appendSections(viewModel.popularMovies)
-        for section in viewModel.popularMovies {
+        snapshot.appendSections(viewModel.moviesList)
+        for section in viewModel.popularMoviesList {
             snapshot.appendItems(section.items, toSection: section)
         }
-        dataSourse?.apply(snapshot)
+        dataSource?.apply(snapshot)
     }
     
     
@@ -63,27 +63,33 @@ class MainViewController: UICollectionViewController {
     }
     
     // MARK: - Diffable Data Source
-    private func createDataSourse() {
-        /// Настраивает ячейки в зависимости от секции
-        dataSourse = DataSourse(collectionView: collectionView,
-                                cellProvider: { [self] (collectionView, indexPath, _) -> UICollectionViewCell? in
-            let section = viewModel.productsList[indexPath.section].section
+    private func createDataSource() {
+        // Настройка ячеек секциий для каждой секции
+        // инициализируем dataSource
+        dataSource = UICollectionViewDiffableDataSource<MoviesList, Movie>(collectionView: collectionView,
+                                                                        cellProvider: { (collectionView, indexPath, movie) -> UICollectionViewCell?
+            in
             
-            switch section {
-            case .mainMenu:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: MainMenuCell.self), for: indexPath) as! MainMenuCell
+            let sectionType = self.viewModel.moviesList[indexPath.section].typeOfSection
+            // строим ячейки в зависимости от типа секции
+            switch sectionType {
+            case .popularMovie:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PopularMovieCell.self),
+                                                              for: indexPath) as! PopularMovieCell
                 
-                cellBuilder.configureCell(for: cell,
-                                          with: viewModel.mainMenuCellViewModel(with: indexPath))
+                self.cellBuilder.configureCell(for: cell, with: self.viewModel.popularMovieCellViewModel(with: indexPath))
                 return cell
-            case .specialOffers:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: SpecialOfferCell.self), for: indexPath) as! SpecialOfferCell
+            case .tvShow:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: TvShowCell.self),
+                                                              for: indexPath) as! TvShowCell
                 
-                cellBuilder.configureCell(for: cell,
-                                          with: viewModel.specialOfferCellViewModel(with: indexPath))
+                self.cellBuilder.configureCell(for: cell, with: self.viewModel.tvShowCellViewModel(with: indexPath))
                 return cell
             }
         })
+        
+    }
+
         
     
     // MARK: - CollectionViewCompositionalLayout

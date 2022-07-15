@@ -7,21 +7,33 @@
 
 import Foundation
 
+// MARK: - Type of Section CollectionView
+struct MoviesList: Hashable {
+    let typeOfSection: Section
+    let items: [Movie]
+}
+
+enum Section: String, CaseIterable {
+    case popularMovie = "Popular Movie"
+    case tvShow = "TV Show"
+}
+
 
 // MARK: - Popular Movies Model
-struct PopularMovies: Codable {
+struct PopularMovies: Codable, Hashable {
     let page: Int
-    let results: [Result]
+    let movies: [Movie]
     let totalPages, totalResults: Int
 
     enum CodingKeys: String, CodingKey {
-        case page, results
+        case page
+        case movies = "results"
         case totalPages = "total_pages"
         case totalResults = "total_results"
     }
 }
 
-struct Result: Codable {
+struct Movie: Codable, Hashable {
     let adult: Bool
     let backdropPath: String
     let genreIDS: [Int]
@@ -55,13 +67,13 @@ enum OriginalLanguage: String, Codable {
     case es = "es"
 }
 
-// MARK: -
-//Состояния, которые будет принимать MainView
+// MARK: - Состояния MainView
+
 enum MainViewData {
     case initial
-    case loading([Result])
-    case success([Result])
-    case failure([Result])
+    case loading([Movie])
+    case success([Movie])
+    case failure([Movie])
 }
 
 
