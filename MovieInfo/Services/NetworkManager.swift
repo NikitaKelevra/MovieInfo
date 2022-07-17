@@ -17,7 +17,7 @@ let region = "RU"
 
 let urlTMDB = "https://api.themoviedb.org/3/movie/550?api_key=\(apiKey)&language=\(language)"
 let popularMoviesAPI = "https://api.themoviedb.org/3/movie/popular?api_key=\(apiKey)&language=\(language)&page=1" //&region=\(region)
-
+let popularTvShowsAPI = "https://api.themoviedb.org/3/tv/popular?api_key=\(apiKey)&language=\(language)&page=1"
 
 
 
@@ -26,19 +26,18 @@ struct NetworkManager {
     static let shared = NetworkManager()
     private init() {}
     
-    //Get запрос популярных фильмов
+    //Get запрос c TMDB   ---  PopularMovies
     func fetchData(from url: String?, with complition: @escaping (PopularMovies) -> Void) {
         guard let stringURL = url else { return }
         guard let url = URL(string: stringURL) else { return }
         
         
-        URLSession.shared.dataTask(with: url) { data, response, error in
+        URLSession.shared.dataTask(with: url) { data, _, error in
                  
             if let error = error {
                 print(error)
                 return
             }
-//            print(response)
             
             guard let data = data else { return }
             print(data)
@@ -53,4 +52,34 @@ struct NetworkManager {
             }
         }.resume()
     }
+    
+    //Get запрос c TMDB   ---   popularTvShows
+    func fetchDataTvShow(from url: String?, with complition: @escaping (PopularTvShows) -> Void) {
+        guard let stringURL = url else { return }
+        guard let url = URL(string: stringURL) else { return }
+        
+        
+        URLSession.shared.dataTask(with: url) { data, _, error in
+                 
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            guard let data = data else { return }
+            print(data)
+            
+            do {
+                let popularTvShows = try JSONDecoder().decode(PopularTvShows.self, from: data)
+                DispatchQueue.main.async {
+                    complition(popularTvShows)
+                }
+            } catch let error {
+                print(error)
+            }
+        }.resume()
+    }
+    
+    
 }
+

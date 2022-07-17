@@ -9,8 +9,8 @@ import Foundation
 
 //import UIKit
 
-/// Протокол строителя
-protocol CellBuildable {
+/// Протокол строителя ячеек
+protocol CellBuilderProtocol {
     /// Настраивает ячейки
     func configureCell(for cell: PopularMovieCell,
                        with popularMovieCellViewModel: PopularMovieCellViewModelProtocol)
@@ -22,7 +22,7 @@ protocol CellBuildable {
 final class CellBuilder {}
 
 // MARK: - CellBuildable
-extension CellBuilder: CellBuildable {
+extension CellBuilder: CellBuilderProtocol {
     func configureCell(for cell: PopularMovieCell, with popularMovieCellViewModel: PopularMovieCellViewModelProtocol) {
         
         cell.viewModel = popularMovieCellViewModel

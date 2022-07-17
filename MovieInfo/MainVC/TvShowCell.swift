@@ -10,9 +10,10 @@ import UIKit
 // MARK: Класс, описывающий ячейку TV Show
 final class TvShowCell: UICollectionViewCell {
 
-//    @IBOutlet weak var productImageView: UIImageView!
-//    @IBOutlet weak var productNameLabel: UILabel!
-//    @IBOutlet weak var productDescriptionLabel: UILabel!
+    
+    @IBOutlet weak var tvShowImageView: UIImageView!
+    @IBOutlet weak var tvShowTitleLabel: UILabel!
+    @IBOutlet weak var tvShowReleaseDateLabel: UILabel!
     
     var viewModel: TvShowCellViewModelProtocol! {
         didSet {

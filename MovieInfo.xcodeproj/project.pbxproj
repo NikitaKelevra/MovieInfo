@@ -12,13 +12,17 @@
 		68649B2A2860F8A700D4B124 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68649B292860F8A700D4B124 /* Assets.xcassets */; };
 		68649B2D2860F8A700D4B124 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68649B2B2860F8A700D4B124 /* LaunchScreen.storyboard */; };
 		68649B352860F97E00D4B124 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68649B342860F97E00D4B124 /* NetworkManager.swift */; };
-		68649B382862553000D4B124 /* MoviesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68649B372862553000D4B124 /* MoviesModel.swift */; };
+		68649B382862553000D4B124 /* MoviesListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68649B372862553000D4B124 /* MoviesListModel.swift */; };
 		688F108228734C8D00EC768A /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688F108128734C8D00EC768A /* MainViewModel.swift */; };
 		68B6F6002881E80000742445 /* PopularMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B6F5FF2881E80000742445 /* PopularMovieCell.swift */; };
 		68B6F6022881E86F00742445 /* PopularMovieCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B6F6012881E86F00742445 /* PopularMovieCellViewModel.swift */; };
 		68B6F6042881E8D000742445 /* TvShowCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B6F6032881E8D000742445 /* TvShowCellViewModel.swift */; };
 		68B6F6062881E8F300742445 /* TvShowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B6F6052881E8F300742445 /* TvShowCell.swift */; };
 		68B6F6082881F26D00742445 /* CellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B6F6072881F26D00742445 /* CellBuilder.swift */; };
+		68B6F60E28830BE600742445 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B6F60D28830BE600742445 /* ImageManager.swift */; };
+		68B6F6102883F62900742445 /* TvShowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68B6F60F2883F62900742445 /* TvShowCell.xib */; };
+		68B6F6122883FE0500742445 /* PopularTvShowsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B6F6112883FE0500742445 /* PopularTvShowsModel.swift */; };
+		68B6F6142884059700742445 /* PopularMoviesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B6F6132884059700742445 /* PopularMoviesModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,13 +33,17 @@
 		68649B2C2860F8A700D4B124 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68649B2E2860F8A700D4B124 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68649B342860F97E00D4B124 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		68649B372862553000D4B124 /* MoviesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesModel.swift; sourceTree = "<group>"; };
+		68649B372862553000D4B124 /* MoviesListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListModel.swift; sourceTree = "<group>"; };
 		688F108128734C8D00EC768A /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		68B6F5FF2881E80000742445 /* PopularMovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMovieCell.swift; sourceTree = "<group>"; };
 		68B6F6012881E86F00742445 /* PopularMovieCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMovieCellViewModel.swift; sourceTree = "<group>"; };
 		68B6F6032881E8D000742445 /* TvShowCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowCellViewModel.swift; sourceTree = "<group>"; };
 		68B6F6052881E8F300742445 /* TvShowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowCell.swift; sourceTree = "<group>"; };
 		68B6F6072881F26D00742445 /* CellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellBuilder.swift; sourceTree = "<group>"; };
+		68B6F60D28830BE600742445 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		68B6F60F2883F62900742445 /* TvShowCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TvShowCell.xib; sourceTree = "<group>"; };
+		68B6F6112883FE0500742445 /* PopularTvShowsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTvShowsModel.swift; sourceTree = "<group>"; };
+		68B6F6132884059700742445 /* PopularMoviesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				68649B1F2860F8A600D4B124 /* MovieInfo */,
+				68649B2B2860F8A700D4B124 /* LaunchScreen.storyboard */,
 				68649B1E2860F8A600D4B124 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,10 +80,8 @@
 				68B6F5FD2881E6FB00742445 /* MainVC */,
 				68649B3928625E0300D4B124 /* Models */,
 				68649B362862304C00D4B124 /* Services */,
-				68649B202860F8A600D4B124 /* AppDelegate.swift */,
-				68649B292860F8A700D4B124 /* Assets.xcassets */,
-				68649B2B2860F8A700D4B124 /* LaunchScreen.storyboard */,
-				68649B2E2860F8A700D4B124 /* Info.plist */,
+				68B6F60C2883050000742445 /* Resources */,
+				68B6F60B288304EE00742445 /* Supporting Files */,
 			);
 			path = MovieInfo;
 			sourceTree = "<group>";
@@ -83,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				68649B342860F97E00D4B124 /* NetworkManager.swift */,
+				68B6F60D28830BE600742445 /* ImageManager.swift */,
 				68B6F6072881F26D00742445 /* CellBuilder.swift */,
 			);
 			path = Services;
@@ -91,7 +99,9 @@
 		68649B3928625E0300D4B124 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				68649B372862553000D4B124 /* MoviesModel.swift */,
+				68649B372862553000D4B124 /* MoviesListModel.swift */,
+				68B6F6132884059700742445 /* PopularMoviesModel.swift */,
+				68B6F6112883FE0500742445 /* PopularTvShowsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -109,12 +119,46 @@
 		68B6F5FE2881E7B200742445 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				68B6F5FF2881E80000742445 /* PopularMovieCell.swift */,
-				68B6F6012881E86F00742445 /* PopularMovieCellViewModel.swift */,
-				68B6F6052881E8F300742445 /* TvShowCell.swift */,
-				68B6F6032881E8D000742445 /* TvShowCellViewModel.swift */,
+				68B6F6092883036800742445 /* PopularMovieCell */,
+				68B6F60A2883038800742445 /* TvShowCell */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		68B6F6092883036800742445 /* PopularMovieCell */ = {
+			isa = PBXGroup;
+			children = (
+				68B6F5FF2881E80000742445 /* PopularMovieCell.swift */,
+				68B6F6012881E86F00742445 /* PopularMovieCellViewModel.swift */,
+			);
+			name = PopularMovieCell;
+			sourceTree = "<group>";
+		};
+		68B6F60A2883038800742445 /* TvShowCell */ = {
+			isa = PBXGroup;
+			children = (
+				68B6F6052881E8F300742445 /* TvShowCell.swift */,
+				68B6F60F2883F62900742445 /* TvShowCell.xib */,
+				68B6F6032881E8D000742445 /* TvShowCellViewModel.swift */,
+			);
+			name = TvShowCell;
+			sourceTree = "<group>";
+		};
+		68B6F60B288304EE00742445 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				68649B202860F8A600D4B124 /* AppDelegate.swift */,
+				68649B2E2860F8A700D4B124 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		68B6F60C2883050000742445 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				68649B292860F8A700D4B124 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +219,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68B6F6102883F62900742445 /* TvShowCell.xib in Resources */,
 				68649B2D2860F8A700D4B124 /* LaunchScreen.storyboard in Resources */,
 				68649B2A2860F8A700D4B124 /* Assets.xcassets in Resources */,
 			);
@@ -189,13 +234,16 @@
 			files = (
 				688F108228734C8D00EC768A /* MainViewModel.swift in Sources */,
 				68B6F6022881E86F00742445 /* PopularMovieCellViewModel.swift in Sources */,
+				68B6F6122883FE0500742445 /* PopularTvShowsModel.swift in Sources */,
 				68B6F6062881E8F300742445 /* TvShowCell.swift in Sources */,
 				68B6F6002881E80000742445 /* PopularMovieCell.swift in Sources */,
 				68B6F6042881E8D000742445 /* TvShowCellViewModel.swift in Sources */,
 				68B6F6082881F26D00742445 /* CellBuilder.swift in Sources */,
+				68B6F6142884059700742445 /* PopularMoviesModel.swift in Sources */,
 				68649B252860F8A600D4B124 /* MainViewController.swift in Sources */,
-				68649B382862553000D4B124 /* MoviesModel.swift in Sources */,
+				68649B382862553000D4B124 /* MoviesListModel.swift in Sources */,
 				68649B352860F97E00D4B124 /* NetworkManager.swift in Sources */,
+				68B6F60E28830BE600742445 /* ImageManager.swift in Sources */,
 				68649B212860F8A600D4B124 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,6 +371,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -339,7 +388,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PK5GMP355X;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MovieInfo/Info.plist;
+				INFOPLIST_FILE = "MovieInfo/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -367,7 +416,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PK5GMP355X;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MovieInfo/Info.plist;
+				INFOPLIST_FILE = "MovieInfo/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

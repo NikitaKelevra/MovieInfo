@@ -12,7 +12,7 @@ protocol MainViewModelProtocol {
     
     var moviesList: [MoviesList] { get }
     var popularMoviesList: [Movie] { get }
-    var tvShowsList: [Movie] { get }
+    var tvShowsList: [TvShow] { get }
     
     func numberOfRowsPopularMovies() -> Int
     
@@ -34,7 +34,7 @@ final class MainViewModel: MainViewModelProtocol {
     var moviesList: [MoviesList] = []
     
     var popularMoviesList: [Movie] = []
-    var tvShowsList: [Movie] = []
+    var tvShowsList: [TvShow] = []
     
     
     func numberOfRowsPopularMovies() -> Int {
@@ -57,8 +57,8 @@ final class MainViewModel: MainViewModelProtocol {
     }
     
     func tvShowCellViewModel(with indexPath: IndexPath) -> TvShowCellViewModelProtocol {
-        let movie = tvShowsList[indexPath.row]
-        return TvShowCellViewModel(movie: movie)
+        let tvShow = tvShowsList[indexPath.row]
+        return TvShowCellViewModel(tvShow: tvShow)
     }
     
     
