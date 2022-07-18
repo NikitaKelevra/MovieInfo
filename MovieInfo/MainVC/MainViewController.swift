@@ -33,9 +33,9 @@ class MainViewController: UICollectionViewController {
         
         viewModel = MainViewModel()
         
-        NetworkManager.shared.fetchData(from: popularTvShowsAPI) { popularMovies in
-            print(popularMovies)
-        }
+//        NetworkManager.shared.fetchData(from: popularTvShowsAPI) { popularMovies in
+//            print(popularMovies)
+//        }
         
 //        fetchData(from: popularMovieAPI)
         setupCollectionView()
@@ -66,9 +66,12 @@ class MainViewController: UICollectionViewController {
     private func setupCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createCompositionalLayout())
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        collectionView.backgroundColor =  .brown // .systemGroupedBackground
         
         collectionView.register(PopularMovieCell.self, forCellWithReuseIdentifier: String(describing: PopularMovieCell.self))
         collectionView.register(TvShowCell.self, forCellWithReuseIdentifier: String(describing: TvShowCell.self))
+        
+        view.addSubview(collectionView)
     }
     
     // MARK: - Diffable Data Source
@@ -96,7 +99,6 @@ class MainViewController: UICollectionViewController {
                 return cell
             }
         })
-        
     }
 
     // Перезагружает данные в CollectionView
@@ -112,7 +114,7 @@ class MainViewController: UICollectionViewController {
         }
         ///добавляет подготовленный snapshot в dataSource
         ///чтобы приложение видело какие данные отображать
-        dataSource?.apply(snapshot)
+        dataSource?.apply(snapshot,animatingDifferences: true)
     }
     
         
@@ -160,9 +162,9 @@ class MainViewController: UICollectionViewController {
                                                              bottom: 10,
                                                              trailing: 0)
         
-//        /// Добавление заголовка
-//        let header = createSectionHeader()
-//        section.boundarySupplementaryItems = [header]
+        /// Добавление заголовка
+        let header = createSectionHeader()
+        section.boundarySupplementaryItems = [header]
 
         return section
     }
@@ -195,5 +197,15 @@ class MainViewController: UICollectionViewController {
                                                                    bottom: 0,
                                                                    trailing: 0)
         return layoutSection
+    }
+    
+    /// Создаем `Заголовок` секции
+    func createSectionHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
+        let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                             heightDimension: .estimated(50))
+        let layoutSectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: layoutSectionHeaderSize,
+                                                                              elementKind: UICollectionView.elementKindSectionHeader,
+                                                                              alignment: .top)
+        return layoutSectionHeader
     }
 }

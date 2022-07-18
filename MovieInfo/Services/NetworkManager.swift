@@ -40,7 +40,7 @@ struct NetworkManager {
             }
             
             guard let data = data else { return }
-            print(data)
+//            print(data)
             
             do {
                 let popularMovie = try JSONDecoder().decode(PopularMovies.self, from: data)
@@ -67,7 +67,7 @@ struct NetworkManager {
             }
             
             guard let data = data else { return }
-            print(data)
+            print("fetchDataTvShow - \(data)")
             
             do {
                 let popularTvShows = try JSONDecoder().decode(PopularTvShows.self, from: data)

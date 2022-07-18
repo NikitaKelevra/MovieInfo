@@ -61,4 +61,6 @@ enum OriginCountry: String, Codable {
     case gb = "GB"
     case jp = "JP"
     case us = "US"
+    case cn = "CN"
+    case zh = "ZH"
 }

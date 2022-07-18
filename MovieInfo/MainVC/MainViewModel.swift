@@ -11,6 +11,7 @@ import UIKit
 protocol MainViewModelProtocol {
     
     var moviesList: [MoviesList] { get }
+    var typeOfSections: [TypeOfSection]  { get }
     var popularMoviesList: [Movie] { get }
     var tvShowsList: [TvShow] { get }
     
@@ -30,8 +31,10 @@ protocol MainViewModelProtocol {
     
 final class MainViewModel: MainViewModelProtocol {
     
-   
     var moviesList: [MoviesList] = []
+    var  typeOfSections: [TypeOfSection] {
+        TypeOfSection.allCases
+    }
     
     var popularMoviesList: [Movie] = []
     var tvShowsList: [TvShow] = []
@@ -45,8 +48,13 @@ final class MainViewModel: MainViewModelProtocol {
     
     func fetchMovies(completion: @escaping () -> Void) {
         NetworkManager.shared.fetchData(from: popularMoviesAPI) {  popularMovies in
-            print (popularMovies.movies)
+//            print (popularMovies.movies)
             self.popularMoviesList = popularMovies.movies
+        }
+        
+        NetworkManager.shared.fetchDataTvShow(from: popularTvShowsAPI) {  popularTvShows in
+            print ("popularTvShows.tvShows ------->>> \n \(popularTvShows)")
+            self.tvShowsList = popularTvShows.tvShows
         }
     }
     

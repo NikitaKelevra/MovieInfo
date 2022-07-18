@@ -26,12 +26,12 @@ struct TvShow: Codable, Hashable {
     let posterPath: String
     let popularity: Double
     let id: Int
-    let backdropPath: String
+    let backdropPath: String?
     let voteAverage: Double
     let overview, firstAirDate: String
-    let originCountry: [OriginCountry]
+//    let originCountry: [OriginCountry]?
     let genreIDS: [Int]
-    let originalLanguage: OriginalLanguage
+//    let originalLanguage: OriginalLanguage
     let voteCount: Int
     let name, originalName: String
 
@@ -42,12 +42,27 @@ struct TvShow: Codable, Hashable {
         case voteAverage = "vote_average"
         case overview
         case firstAirDate = "first_air_date"
-        case originCountry = "origin_country"
+//        case originCountry = "origin_country"
         case genreIDS = "genre_ids"
-        case originalLanguage = "original_language"
+//        case originalLanguage = "original_language"
         case voteCount = "vote_count"
         case name
         case originalName = "original_name"
     }
 }
 
+/*
+ 17072 bytes
+ 
+ dataCorrupted(Swift.DecodingError.Context(codingPath: [CodingKeys(stringValue: "results", intValue: nil),
+ _JSONKey(stringValue: "Index 3", intValue: 3), CodingKeys(stringValue: "origin_country", intValue: nil),
+ _JSONKey(stringValue: "Index 0", intValue: 0)],
+ debugDescription: "Cannot initialize OriginCountry from invalid String value CN", underlyingError: nil))
+ 
+ 17072 bytes
+ 
+ keyNotFound(CodingKeys(stringValue: "adult", intValue: nil),
+ Swift.DecodingError.Context(codingPath: [CodingKeys(stringValue: "results", intValue: nil),
+ _JSONKey(stringValue: "Index 0", intValue: 0)],
+ debugDescription: "No value associated with key CodingKeys(stringValue: \"adult\", intValue: nil) (\"adult\").", underlyingError: nil))
+ */
