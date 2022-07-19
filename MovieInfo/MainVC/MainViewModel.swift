@@ -47,15 +47,32 @@ final class MainViewModel: MainViewModelProtocol {
     
     
     func fetchMovies(completion: @escaping () -> Void) {
-        NetworkManager.shared.fetchData(from: popularMoviesAPI) {  popularMovies in
-//            print (popularMovies.movies)
-            self.popularMoviesList = popularMovies.movies
+        
+        NetworkManager.shared.fetchPopMovieData { [weak self] (movie, error) in
+            guard let self = self else { return }
+            
+            if let movies = movies {
+                self.loadData(movie: movie)
+                print (movies)
+                self.popularMoviesList = movies
+                
+            } else {
+                print("No movies found!!")
+            }
+            
         }
         
-        NetworkManager.shared.fetchDataTvShow(from: popularTvShowsAPI) {  popularTvShows in
-            print ("popularTvShows.tvShows ------->>> \n \(popularTvShows)")
-            self.tvShowsList = popularTvShows.tvShows
-        }
+        
+        
+//        NetworkManager.shared.fetchData(from: popularMoviesAPI) {  popularMovies in
+////            print (popularMovies.movies)
+//            self.popularMoviesList = popularMovies.movies
+//        }
+//
+//        NetworkManager.shared.fetchDataTvShow(from: popularTvShowsAPI) {  popularTvShows in
+//            print ("popularTvShows.tvShows ------->>> \n \(popularTvShows)")
+//            self.tvShowsList = popularTvShows.tvShows
+//        }
     }
     
     // Реализация создания ячеек для секций через протоколы View моделей

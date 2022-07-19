@@ -18,7 +18,7 @@ protocol PopularMovieCellViewModelProtocol {
 final class PopularMovieCellViewModel: PopularMovieCellViewModelProtocol {
     var movieImage: UIImage {
 //        let url = URL(string: movie.posterPath)
-        let link = "https://image.tmdb.org/t/p/w500/" + movie.posterPath
+        let link = "https://image.tmdb.org/t/p/w500/\(movie.posterPath)"
         guard let image = ImageManager.shared.fetchImageData(from: link)
         else { return UIImage(systemName: "clock")!}       /// НЕБЕЗОПСНОЕ ИЗВЛЕЧЕНИЕ
         return image

@@ -7,20 +7,22 @@
 
 import Foundation
 
-// MARK: - Type of Section CollectionView
-struct MoviesList: Hashable {
+
+// MARK: - Структура для универсального NetworkManager
+struct PageModel: Codable {
+    let data: [MoviesList]
+}
+
+// MARK: - Типы секций Main CollectionView
+struct MoviesList: Hashable, Codable {
     let section: TypeOfSection
     let items: [Movie]
 }
 
-enum TypeOfSection: String, CaseIterable {
+enum TypeOfSection: String, CaseIterable, Codable {
     case popularMovie = "Popular Movie"
     case tvShow = "TV Show"
 }
-
-
-
-
 
 // MARK: - Состояния MainView
 

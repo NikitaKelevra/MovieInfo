@@ -17,9 +17,9 @@ protocol TvShowCellViewModelProtocol {
 
 final class TvShowCellViewModel: TvShowCellViewModelProtocol {
     var tvShowImage: UIImage {
-        let link = "https://image.tmdb.org/t/p/w500/" + tvShow.posterPath
+        let link = "https://image.tmdb.org/t/p/w500/\(tvShow.posterPath)"
         guard let image = ImageManager.shared.fetchImageData(from: link)
-        else { return UIImage(systemName: "clock")!}       /// НЕБЕЗОПСНОЕ ИЗВЛЕЧЕНИЕ
+        else { return UIImage(systemName: "clock")!}       /// НЕБЕЗОПАСНОЕ ИЗВЛЕЧЕНИЕ
         return image
     }
     
